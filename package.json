@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --hot --progress --config webpack.config.js",
-    "dev": "webpack-dev-server --hot"
+    "start": "webpack-dev-server --hot --progress --config webpack.dev.config.js",
+    "build:dev": "rimraf dist && webpack --progress --config webpack.dev.config.js",
+    "build:test": "rimraf dist && webpack --progress --config webpack.test.config.js",
+    "build": "rimraf dist && webpack --progress --config webpack.prod.config.js"
   },
   "author": "",
   "license": "ISC",
@@ -30,7 +31,8 @@
     "uglifyjs-webpack-plugin": "^0.4.6",
     "url-loader": "^0.5.9",
     "webpack": "^3.1.0",
-    "webpack-dev-server": "^2.5.1"
+    "webpack-dev-server": "^2.5.1",
+    "webpack-merge": "^4.1.0"
   },
   "dependencies": {
     "react": "^15.6.1",
